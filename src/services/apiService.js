@@ -26,11 +26,6 @@ const resource = "rest/v1";
   }
 
 
-
-
-
-  
-
   export const obtenerToken = async (username, password) => {
     try {
       const response = await Service.post(`${resource}/token/`, { username, password });
@@ -62,8 +57,6 @@ const resource = "rest/v1";
       throw error;
     }
   };
-
-
 
 
 export const registerUser = async (userData) => {

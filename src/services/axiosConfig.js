@@ -29,10 +29,14 @@ axiosInstance.interceptors.response.use(
     return response;
   },
   (error) => {
-    if (error.response && error.response.status === 401) {
-      localStorage.removeItem('access');
-      localStorage.removeItem('refresh');
-      window.location.href = '/login'; 
+    if (error.response) {
+      if (error.response.status === 401) {
+        localStorage.removeItem('access');
+        localStorage.removeItem('refresh');
+        window.location.href = '/login'; 
+      } else if (error.response.status === 403) {
+        window.location.href = '/accounts/server-response'; 
+      }
     }
     return Promise.reject(error);
   }

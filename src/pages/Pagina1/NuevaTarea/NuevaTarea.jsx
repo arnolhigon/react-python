@@ -4,8 +4,7 @@ import { CrearTarea } from '../../../services/apiService';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
-import { showSuccessNotification,showErrorNotification} from '../../../utils/notifications';
-
+import { showSuccessNotification, showErrorNotification } from '../../../utils/notifications';
 
 const NuevoTarea = () => {
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm();
@@ -15,10 +14,10 @@ const NuevoTarea = () => {
     try {
       const response = await CrearTarea(data);
       reset(); 
-      showSuccessNotification("Operacion Exitosa")
+      showSuccessNotification("Operación Exitosa");
       navigate('/pagina1');
     } catch (error) {
-      showErrorNotification("Error al guardar Tarea")
+      showErrorNotification("Error al guardar Tarea");
     }
   };
 
@@ -27,7 +26,7 @@ const NuevoTarea = () => {
       <h2 className="mb-4">Formulario para Nueva Tarea</h2>
       <form onSubmit={handleSubmit(onSubmit)} className="row g-3">
         <div className="col-md-4">
-          <label htmlFor="titulo" className="form-label">Titulo:</label>
+          <label htmlFor="titulo" className="form-label">Título:</label>
           <input type="text" {...register('titulo', { required: 'El título es requerido' })} className="form-control" />
           {errors.titulo && <div className="text-danger">{errors.titulo.message}</div>}
         </div>

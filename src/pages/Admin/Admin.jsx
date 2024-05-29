@@ -10,8 +10,11 @@ const Admin = () => {
 
   return (
     <div>
-      <h1>Bienvenido, {user.username}</h1>
+      <h1>Bienvenid@, {user.username}</h1>
       <p>Grupos: {user.groups.join(', ')}</p>
+      <p>Rol: {user.rol}</p>
+      <p>Proceso: {user.proceso}</p>
+
     </div>
   );
 };

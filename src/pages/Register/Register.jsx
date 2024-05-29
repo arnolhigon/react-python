@@ -10,14 +10,18 @@ const Register = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const [email, setEmail] = useState('');
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
-
     if (password !== confirmPassword) {
-      showErrorNotification('Las contraseñas no coinciden');
+      const errorMessage = 'Las contraseñas no coinciden';
+      setErrorMessage(errorMessage);
+      setTimeout(() => {
+        setErrorMessage('');
+      }, 7000);
       return;
     }
 
@@ -26,7 +30,11 @@ const Register = () => {
       showSuccessNotification('Usuario registrado exitosamente');
       navigate('/login');
     } catch (error) {
-      showErrorNotification(error.message || 'Error al registrar usuario');
+      const errorMessage = error.message || 'Ha ocurrido un error';
+      setErrorMessage(errorMessage);
+      setTimeout(() => {
+        setErrorMessage('');
+      }, 7000); 
     }
   };
   return (
@@ -35,6 +43,11 @@ const Register = () => {
         <div className="left-column">
           <h1>Bienvenido</h1>
           <p className="subtitle">Regístrate para empezar</p>
+          {errorMessage && (
+              <div className="error-message show">
+                {errorMessage}
+              </div>
+            )}
         </div>
         <div className="right-column">
           <form className="login-form" onSubmit={handleRegister}>
@@ -84,6 +97,7 @@ const Register = () => {
               />
               <label htmlFor="email">Email:</label>
             </div>
+
             <div className="form-actions">
             <span className="form-info" >¿Ya tienes una cuenta? <Link to="/login">Inicia sesión</Link></span>
             <button type="submit" className="btn-next">Registrarse</button>

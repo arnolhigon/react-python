@@ -1,0 +1,31 @@
+/* ServerResponse.css */
+.wrapper {
+    background-image: url('/assets/BG.png');
+    background-size: cover; /* Ajusta la imagen al tamaño de la pantalla */
+    background-repeat: no-repeat;
+    min-height: 60rem;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  
+  .contenido {
+    margin: 15rem;
+  }
+  
+  .contenido u {
+    color: #3D9970;
+    font-weight: 600;
+  }
+  
+  .contenido h1 {
+    color: #54BFAE;
+  }
+  
+  .contenido h2, .contenido p {
+    color: #331F16;
+  }
+  

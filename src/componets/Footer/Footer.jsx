@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="container">
-        <p>© 2024 Mi Aplicación - Todos los derechos reservados</p>
+        <p>© 2024 PycodeWeb - Todos los derechos reservados</p>
       </div>
     </footer>
   );

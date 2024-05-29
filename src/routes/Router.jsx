@@ -5,6 +5,7 @@ import { AuthProvider } from '../context/AuthContext';
 
 import Login from '../pages/Login/Login'; 
 import Register from '../pages/Register/Register';
+import ServerResponse from '../pages/ServerResponse/ServerResponse'; 
 
 import Admin from '../pages/Admin/Admin';
 import Home from '../pages/Home/Home';
@@ -32,6 +33,7 @@ const App = () => {
               <Route path="/pagina2" element={<ProtectedRoute element={<Pagina2 />} />} />
               <Route path="/nueva-tarea" element={<ProtectedRoute element={<NuevoTarea />} />} />
               <Route path="/admin" element={<ProtectedRoute element={<Admin />} />} />
+              <Route path="/accounts/server-response" element={<ServerResponse />} /> 
             </Routes>
           </div>
           <Footer />

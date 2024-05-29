@@ -18,15 +18,15 @@ const Navbar = () => {
     <div>
       <nav>
         <ul>
-          <li><Link to="/">Inicio</Link></li>
-          <li><Link to="/keycloack"> keycloack</Link></li>
+          <li><Link to="/admin">Inicio</Link></li>
           {user && (
             <>
               <li><Link to="/pagina1">Listar Tareas</Link></li>
     
-              {user.groups.includes('prestador') && (
-              <li><Link to="/nueva-tarea">Nueva Tarea</Link></li>
-            )}
+              {user.groups.includes('prestador') && user.rol === 'GES' && user.proceso === 'PR' && (
+                <li><Link to="/nueva-tarea">Nueva Tarea</Link></li>
+              )}
+
 
               <li><Link to="/pagina2">Descargar Reporte</Link></li>
             </>
